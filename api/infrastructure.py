@@ -70,6 +70,7 @@ class API(cdk.Construct):
     ) -> Dict[str, Any]:
         chalice_stage_config = {
             "api_gateway_stage": "v1",
+            "api_gateway_endpoint_type": "REGIONAL",
             "lambda_functions": {
                 "api_handler": {
                     "manage_iam_role": False,

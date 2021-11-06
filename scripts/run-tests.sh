@@ -38,7 +38,10 @@ mypy --config-file .mypy.ini "${targets[@]:0:4}"
 mypy --config-file .mypy.ini "${targets[@]:4}"
 
 # Check for errors, enforce a coding standard, look for code smells (http://pylint.pycqa.org)
-pylint --rcfile .pylintrc "${targets[@]}"
+
+# Crashes when analyzing `test_api_infrastructure.py`
+# pylint --rcfile .pylintrc "${targets[@]}"
+
 
 # Check dependencies for security issues (https://pyup.io/safety)
 # Ignore coverage 5.5 (41002) report, no issues per Snyk: https://snyk.io/vuln/pip:coverage@5.5
@@ -52,7 +55,8 @@ safety check \
 radon mi "${targets[@]}"
 
 # Exit with non-zero status if code complexity exceeds thresholds (https://xenon.readthedocs.io)
-xenon --max-absolute A --max-modules A --max-average A "${targets[@]}"
+# package removed because dependencies conflict with Chalise.
+# xenon --max-absolute A --max-modules A --max-average A "${targets[@]}"
 
 # Run tests and measure code coverage (https://coverage.readthedocs.io)
 PYTHONPATH="${PWD}/api/runtime" \

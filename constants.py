@@ -19,7 +19,7 @@ from aws_cdk import aws_dynamodb as dynamodb
 from aws_cdk import core as cdk
 
 CDK_APP_NAME = "UserManagementBackend"
-CDK_APP_PYTHON_VERSION = "3.7"
+CDK_APP_PYTHON_VERSION = "3.9"
 
 # pylint: disable=line-too-long
 GITHUB_CONNECTION_ARN = "CONNECTION_ARN"
